@@ -8,7 +8,7 @@ type Props = {
   children: ReactNode;
 };
 export const Layout: FC<Props> = ({ children }) => {
-  const title: string = "koh-secret-hideaway";
+  const title: string = "Koh - Secret Hideaway";
   const description: string =
     "This is Koh's personal website";
   const site_url: string | undefined =
