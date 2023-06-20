@@ -1,6 +1,6 @@
 // import Image from 'next/image';
 import { Layout } from '@/components/Layout';
-import { inter } from './fonts';
+import { inter } from '../fonts';
 
 
 export default function Home() {

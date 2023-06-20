@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Container } from './Container';
 import { Disclosure } from '@headlessui/react';
 import Link from 'next/link';
-import { major_mono_display } from '@/pages/fonts';
+import { major_mono_display } from '@/fonts';
 import {
   Bars3Icon,
   XMarkIcon,
