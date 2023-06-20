@@ -11,7 +11,7 @@ export const Layout: FC<Props> = ({ children }) => {
   const title: string = "koh-secret-hideaway";
   const description: string =
     "This is Koh's personal website";
-  const url: string | undefined =
+  const site_url: string | undefined =
     process.env.NEXT_PUBLIC_URL;
   const twitter_name: string | undefined =
     process.env.NEXT_PUBLIC_TWITTER_NAME;
@@ -21,14 +21,14 @@ export const Layout: FC<Props> = ({ children }) => {
       <NextSeo
         title={title}
         description={description}
-        canonical={url}
+        canonical={site_url}
         openGraph={{
-          url: url,
+          url: site_url,
           title: title,
           description: description,
           images: [
             {
-              url: '/vercel.svg',
+              url: `${site_url}/vercel.svg`,
               width: 800,
               height: 600,
               alt: title,
