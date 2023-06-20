@@ -35,7 +35,6 @@ export const Navbar = () => {
                     (
                       item: MenuItem,
                       index: number,
-                      array: MenuItem[]
                     ) => (
                       <Fragment key={`${index}`}>
                         <Link
@@ -82,7 +81,6 @@ export const Navbar = () => {
                     (
                       item: MenuItem,
                       index: number,
-                      array: MenuItem[]
                     ) => (
                       <Fragment
                         key={`${item.label}${index}`}
@@ -111,7 +109,6 @@ export const Navbar = () => {
                     (
                       item: MenuItem,
                       index: number,
-                      array: MenuItem[]
                     ) => (
                       <Fragment
                         key={`${item.label}${index}`}
