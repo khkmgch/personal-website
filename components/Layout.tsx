@@ -3,6 +3,7 @@ import React, { FC, ReactNode } from 'react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { NextSeo } from 'next-seo';
+import { inter } from '@/fonts';
 
 type Props = {
   children: ReactNode;
@@ -43,7 +44,7 @@ export const Layout: FC<Props> = ({ children }) => {
         }}
       />
       <Navbar />
-      <main>{children}</main>
+      <main className={`p-24 ${inter.className} bg-white`}>{children}</main>
       <Footer />
     </>
   );

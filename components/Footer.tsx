@@ -3,7 +3,7 @@ import { Container } from './Container';
 
 export const Footer = () => {
   return (
-    <Container className='mt-10 border-t border-gray-100 dark:border-gray-800'>
+    <Container className='border-t border-gray-100 dark:border-gray-800'>
       <div className="text-center text-sm">
         Copyright © {new Date().getFullYear()} Koh. All
         rights reserved.
