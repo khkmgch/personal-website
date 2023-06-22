@@ -29,7 +29,7 @@ export const Layout: FC<Props> = ({ children }) => {
           description: description,
           images: [
             {
-              url: `${site_url}/vercel.svg`,
+              url: `${site_url}/images/curio-nest.png`,
               width: 800,
               height: 600,
               alt: title,
