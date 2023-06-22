@@ -11,7 +11,7 @@ export const Container: FC<Props> = ({
   return (
     <div
       className={clsx(
-        'container mx-auto px-8 py-5 lg:py-8 xl:px-5',
+        'container mx-auto px-8 py-5 lg:py-8 xl:px-5 max-w-screen-lg',
         className
       )}
     >
