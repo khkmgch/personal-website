@@ -11,7 +11,8 @@ export async function getStaticProps() {
     id: string;
     title: string;
     date: string;
-    image: string;
+    thumbnail: string;
+    category: string;
     pdf?: string;
   }[] = getAllWorks();
   console.log(works);
@@ -27,7 +28,8 @@ type Props = {
     id: string;
     title: string;
     date: string;
-    image: string;
+    thumbnail: string;
+    category: "app" | "architecture" | ''
     pdf?: string;
   }[];
 };

@@ -6,7 +6,8 @@ const getWorks: (dir: string) => {
   id: string;
   title: string;
   date: string;
-  image: string;
+  thumbnail: string;
+  category: "app" | "architecture" | ''
   pdf?: string;
 }[] = (dir: string) => {
   const fileNames: string[] = fs.readdirSync(dir);
@@ -27,7 +28,8 @@ const getWorks: (dir: string) => {
       id: string;
       title: string;
       date: string;
-      image: string;
+      thumbnail: string;
+      category: "app" | "architecture" | ''
       pdf?: string;
     } = {
       id,
@@ -35,8 +37,11 @@ const getWorks: (dir: string) => {
         ? matterRes.data.title
         : '',
       date: hasDate(matterRes) ? matterRes.data.date : '',
-      image: hasImage(matterRes)
-        ? matterRes.data.image
+      thumbnail: hasThumbnail(matterRes)
+        ? matterRes.data.thumbnail
+        : '',
+      category: hasCategory(matterRes)
+        ? matterRes.data.category
         : '',
     };
     if (hasPdf(matterRes)) {
@@ -65,12 +70,18 @@ const hasDate: (
   'date' in matterRes.data &&
   typeof matterRes.data.date === 'string';
 
-const hasImage: (
+const hasThumbnail: (
   matterRes: matter.GrayMatterFile<string>
 ) => boolean = (matterRes: matter.GrayMatterFile<string>) =>
   hasData(matterRes) &&
-  'image' in matterRes.data &&
-  typeof matterRes.data.image === 'string';
+  'thumbnail' in matterRes.data &&
+  typeof matterRes.data.thumbnail === 'string';
+const hasCategory: (
+  matterRes: matter.GrayMatterFile<string>
+) => boolean = (matterRes: matter.GrayMatterFile<string>) =>
+  hasData(matterRes) &&
+  'category' in matterRes.data &&
+  typeof matterRes.data.category === 'string';
 
 const hasPdf: (
   matterRes: matter.GrayMatterFile<string>
@@ -87,7 +98,8 @@ export const getAllWorks: () => {
   id: string;
   title: string;
   date: string;
-  image: string;
+  thumbnail: string;
+  category: "app" | "architecture" | '';
   pdf?: string;
 }[] = () => {
   return [
