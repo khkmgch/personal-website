@@ -9,7 +9,7 @@ type Props = {
   children: ReactNode;
 };
 export const Layout: FC<Props> = ({ children }) => {
-  const title: string = "Koh - Secret Hideaway";
+  const title: string = 'Koh - Secret Hideaway';
   const description: string =
     "This is Koh's personal website";
   const site_url: string | undefined =
@@ -44,7 +44,9 @@ export const Layout: FC<Props> = ({ children }) => {
         }}
       />
       <Navbar />
-      <main className={`p-24 ${inter.className} bg-white`}>{children}</main>
+      <main className={` ${inter.className} bg-white`}>
+        {children}
+      </main>
       <Footer />
     </>
   );
