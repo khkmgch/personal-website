@@ -1,20 +1,21 @@
+import { PhotoIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
+import { Label } from '../ui/Label';
 
 type Props = {
   work: {
     id: string;
     title: string;
     date: string;
-    image: string;
+    thumbnail: string;
+    category: 'app' | 'architecture' | '';
     pdf?: string;
   };
   aspect: 'video' | 'square';
 };
 export const WorkCard: FC<Props> = ({ work, aspect }) => {
-  const url: string | undefined =
-    process.env.NEXT_PUBLIC_URL;
   return (
     <>
       <div className='group cursor-pointer'>
@@ -29,15 +30,44 @@ export const WorkCard: FC<Props> = ({ work, aspect }) => {
             }`}
             href={`/work/${work.id}`}
           >
-            <Image
-              className='object-cover transition-all'
-              src={`${url}${work.image}`}
-              alt='Thumbnail'
-              fill={true}
-              priority={true}
-              sizes='(max-width: 768px) 100vw, 33vw'
-            />
+            {work.thumbnail !== '' ? (
+              <Image
+                className='object-cover transition-all'
+                src={work.thumbnail}
+                alt='Thumbnail'
+                fill={true}
+                priority={true}
+                sizes='(max-width: 768px) 100vw, 33vw'
+              />
+            ) : (
+              <span className='absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 text-gray-200'>
+                <PhotoIcon />
+              </span>
+            )}
           </Link>
+        </div>
+        <div>
+          <div>
+            <Label category={work.category} />
+            <h2 className='mt-2 text-lg font-semibold leading-snug tracking-tight dark:text-white'>
+              <Link href={`/works/${work.category}`}>
+                <span
+                  className='bg-gradient-to-r from-yellow-200 to-yellow-100 bg-[length:0px_10px] bg-left-bottom
+      bg-no-repeat
+      transition-[background-size]
+      duration-500
+      hover:bg-[length:100%_3px]
+      group-hover:bg-[length:100%_10px]
+      dark:from-purple-800 dark:to-purple-900'
+                >
+                  {work.title}
+                </span>
+              </Link>
+            </h2>
+            <div className='mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400'>
+              <span className='truncate text-sm'>{work.date}</span>
+            </div>
+          </div>
         </div>
       </div>
     </>
