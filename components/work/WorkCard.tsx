@@ -52,7 +52,7 @@ export const WorkCard: FC<Props> = ({ work, aspect }) => {
             <h2 className='mt-2 text-lg font-semibold leading-snug tracking-tight dark:text-white'>
               <Link href={`/works/${work.category}`}>
                 <span
-                  className='bg-gradient-to-r from-yellow-200 to-yellow-100 bg-[length:0px_10px] bg-left-bottom
+                  className='bg-gradient-to-r from-red-200 to-red-100 bg-[length:0px_10px] bg-left-bottom
       bg-no-repeat
       transition-[background-size]
       duration-500
