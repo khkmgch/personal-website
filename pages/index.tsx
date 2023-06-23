@@ -17,9 +17,12 @@ export async function getStaticProps() {
   }[] = getAllWorks();
   console.log(works);
 
+  const openGraphImg = `${process.env.NEXT_PUBLIC_URL}/images/curio-nest.png`;
+
   return {
     props: {
       works,
+      openGraphImg,
     },
   };
 }
@@ -29,14 +32,18 @@ type Props = {
     title: string;
     date: string;
     thumbnail: string;
-    category: "app" | "architecture" | ''
+    category: 'app' | 'architecture' | '';
     pdf?: string;
   }[];
+  openGraphImg: string;
 };
 
-export default function Home({ works }: Props) {
+export default function Home({
+  works,
+  openGraphImg,
+}: Props) {
   return (
-    <Layout>
+    <Layout openGraphImg={openGraphImg}>
       <WorkList works={works} />
       {/* <main
         className={`flex min-h-screen flex-col items-center justify-between ${inter.className}`}
