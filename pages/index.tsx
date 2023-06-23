@@ -17,12 +17,9 @@ export async function getStaticProps() {
   }[] = getAllWorks();
   console.log(works);
 
-  const openGraphImg = `${process.env.NEXT_PUBLIC_URL}/images/curio-nest.png`;
-
   return {
     props: {
       works,
-      openGraphImg,
     },
   };
 }
@@ -35,15 +32,13 @@ type Props = {
     category: 'app' | 'architecture' | '';
     pdf?: string;
   }[];
-  openGraphImg: string;
 };
 
 export default function Home({
   works,
-  openGraphImg,
 }: Props) {
   return (
-    <Layout openGraphImg={openGraphImg}>
+    <Layout>
       <WorkList works={works} />
       {/* <main
         className={`flex min-h-screen flex-col items-center justify-between ${inter.className}`}

@@ -31,14 +31,12 @@ type Props = {
   title: string;
   description: string;
   url: string | undefined;
-  image_url: string | undefined;
   twitter_user: string | undefined;
 };
 export const SeoHead: FC<Props> = ({
   title,
   description,
   url,
-  image_url,
   twitter_user,
 }) => {
   return (
@@ -65,7 +63,7 @@ export const SeoHead: FC<Props> = ({
         content={description}
       />
       <meta property='og:url' content={url} />
-      <meta property='og:image' content={`${image_url}`} />
+      <meta property='og:image' content={`${url}/api/og`} />
       <meta property='og:image:alt' content={title} />
       <meta property='og:image:width' content='800' />
       <meta property='og:image:height' content='600' />

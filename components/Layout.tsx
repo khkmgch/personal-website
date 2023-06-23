@@ -6,11 +6,9 @@ import { SeoHead } from './SeoHead';
 
 type Props = {
   children: ReactNode;
-  openGraphImg?: string;
 };
 export const Layout: FC<Props> = ({
   children,
-  openGraphImg,
 }) => {
   const title: string = 'Koh - Secret Hideaway';
   const description: string =
@@ -25,7 +23,6 @@ export const Layout: FC<Props> = ({
         title={title}
         description={description}
         url={site_url}
-        image_url={openGraphImg}
         twitter_user={twitter_user}
       />
       <Navbar />
