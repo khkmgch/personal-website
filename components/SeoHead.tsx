@@ -55,6 +55,15 @@ export const SeoHead: FC<Props> = ({
       />
       <meta name='twitter:site' content={twitter_user} />
       <meta name='twitter:creator' content={twitter_user} />
+      <meta
+        name='twitter:image'
+        content={`${url}/api/og`}
+      />
+      <meta name='twitter:title' content={title} />
+      <meta
+        name='twitter:description'
+        content={description}
+      />
 
       {/* openGraph */}
       <meta property='og:title' content={title} />
