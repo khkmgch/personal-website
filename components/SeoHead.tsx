@@ -31,12 +31,14 @@ type Props = {
   title: string;
   description: string;
   url: string | undefined;
+  image_url: string | undefined;
   twitter_user: string | undefined;
 };
 export const SeoHead: FC<Props> = ({
   title,
   description,
   url,
+  image_url,
   twitter_user,
 }) => {
   return (
@@ -63,16 +65,16 @@ export const SeoHead: FC<Props> = ({
         content={description}
       />
       <meta property='og:url' content={url} />
-      <meta
-        property='og:image'
-        content={`${url}/profile-shelf.png`}
-      />
+      <meta property='og:image' content={`${image_url}`} />
       <meta property='og:image:alt' content={title} />
       <meta property='og:image:width' content='800' />
       <meta property='og:image:height' content='600' />
       <meta property='og:site_name' content={title} />
-      <meta property="og:type" content="website or article" />
-      <meta property="og:locale" content="ja_JP" />
+      <meta
+        property='og:type'
+        content='website or article'
+      />
+      <meta property='og:locale' content='ja_JP' />
 
       <link rel='canonical' href={url} />
     </Head>
