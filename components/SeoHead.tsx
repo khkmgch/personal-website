@@ -65,7 +65,7 @@ export const SeoHead: FC<Props> = ({
       <meta property='og:url' content={url} />
       <meta
         property='og:image'
-        content={`${url}/images/curio-nest.png`}
+        content={`${url}/profile-shelf.png`}
       />
       <meta property='og:image:alt' content={title} />
       <meta property='og:image:width' content='800' />
