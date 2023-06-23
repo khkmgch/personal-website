@@ -6,8 +6,7 @@ export const config = {
 
 const image = fetch(
   new URL(
-    `${process.env.NEXT_PUBLIC_URL}/images/curio-nest.png`,
-    import.meta.url
+    `${process.env.NEXT_PUBLIC_URL}/images/curio-nest.png`
   )
 ).then((res) => res.arrayBuffer());
 
