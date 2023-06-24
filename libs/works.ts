@@ -1,109 +1,158 @@
 import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
+import { remark } from 'remark';
+import html from 'remark-html';
+import { WorkGuard } from './guards/work-guard';
+import { WorkMeta } from '@/types/WorkMeta.type';
+import { WorkCategory } from '@/types/WorkCategory.type';
 
-const getWorks: (dir: string) => {
-  id: string;
-  title: string;
-  date: string;
-  thumbnail: string;
-  category: "app" | "architecture" | ''
-  pdf?: string;
-}[] = (dir: string) => {
+const getWorkMetaArr: (
+  category: WorkCategory
+) => WorkMeta[] = (category: string) => {
+  const dir: string = path.join(
+    process.cwd(),
+    `data/works/${category}`
+  );
   const fileNames: string[] = fs.readdirSync(dir);
 
-  const all = fileNames.map((fileName: string) => {
-    const id: string = fileName.replace(/\.md$/, '');
+  const all: WorkMeta[] = fileNames.map(
+    (fileName: string) => {
+      const slug: string = `${category}/${fileName.replace(
+        /\.md$/,
+        ''
+      )}`;
 
-    const filePath: string = path.join(dir, fileName);
-    const fileContents: string = fs.readFileSync(
-      filePath,
-      'utf-8'
-    );
+      const filePath: string = path.join(dir, fileName);
+      const fileContent: string = fs.readFileSync(
+        filePath,
+        'utf-8'
+      );
 
-    const matterRes: matter.GrayMatterFile<string> =
-      matter(fileContents);
+      const matterRes: matter.GrayMatterFile<string> =
+        matter(fileContent);
 
-    const res: {
-      id: string;
-      title: string;
-      date: string;
-      thumbnail: string;
-      category: "app" | "architecture" | ''
-      pdf?: string;
-    } = {
-      id,
-      title: hasTitle(matterRes)
-        ? matterRes.data.title
-        : '',
-      date: hasDate(matterRes) ? matterRes.data.date : '',
-      thumbnail: hasThumbnail(matterRes)
-        ? matterRes.data.thumbnail
-        : '',
-      category: hasCategory(matterRes)
-        ? matterRes.data.category
-        : '',
-    };
-    if (hasPdf(matterRes)) {
-      res.pdf = matterRes.data.pdf;
+      const res: WorkMeta = {
+        slug,
+        title: WorkGuard.hasTitle(matterRes)
+          ? matterRes.data.title
+          : '',
+        date: WorkGuard.hasDate(matterRes)
+          ? matterRes.data.date
+          : '',
+        thumbnail: WorkGuard.hasThumbnail(matterRes)
+          ? matterRes.data.thumbnail
+          : '',
+        category: WorkGuard.hasCategory(matterRes)
+          ? matterRes.data.category
+          : '',
+      };
+      if (WorkGuard.hasPdf(matterRes)) {
+        res.pdf = matterRes.data.pdf;
+      }
+      return res;
     }
-    return res;
-  });
+  );
   return all;
 };
-const hasData: (
-  matterRes: matter.GrayMatterFile<string>
-) => boolean = (matterRes: matter.GrayMatterFile<string>) =>
-  'data' in matterRes;
 
-const hasTitle: (
-  matterRes: matter.GrayMatterFile<string>
-) => boolean = (matterRes: matter.GrayMatterFile<string>) =>
-  hasData(matterRes) &&
-  'title' in matterRes.data &&
-  typeof matterRes.data.title === 'string';
+const getWorkPathArr: (category: string) => {
+  params: {
+    slug: string;
+  };
+}[] = (category: string) => {
+  const dir: string = path.join(
+    process.cwd(),
+    `data/works/${category}`
+  );
+  const fileNames: string[] = fs.readdirSync(dir);
 
-const hasDate: (
-  matterRes: matter.GrayMatterFile<string>
-) => boolean = (matterRes: matter.GrayMatterFile<string>) =>
-  hasData(matterRes) &&
-  'date' in matterRes.data &&
-  typeof matterRes.data.date === 'string';
+  return fileNames.map((fileName: string) => {
+    return {
+      params: {
+        slug: `${category}/${fileName.replace(
+          /\.md$/,
+          ''
+        )}`,
+      },
+    };
+  });
+};
 
-const hasThumbnail: (
-  matterRes: matter.GrayMatterFile<string>
-) => boolean = (matterRes: matter.GrayMatterFile<string>) =>
-  hasData(matterRes) &&
-  'thumbnail' in matterRes.data &&
-  typeof matterRes.data.thumbnail === 'string';
-const hasCategory: (
-  matterRes: matter.GrayMatterFile<string>
-) => boolean = (matterRes: matter.GrayMatterFile<string>) =>
-  hasData(matterRes) &&
-  'category' in matterRes.data &&
-  typeof matterRes.data.category === 'string';
+export const getWork: (slug: string) => Promise<
+  WorkMeta & {
+    contentHTML: string;
+  }
+> = async (slug: string) => {
+  const dir: string = path.join(
+    process.cwd(),
+    `data/works`
+  );
+  const filePath: string = path.join(dir, `${slug}.md`);
+  const fileContent: string = fs.readFileSync(
+    filePath,
+    'utf-8'
+  );
 
-const hasPdf: (
-  matterRes: matter.GrayMatterFile<string>
-) => boolean = (matterRes: matter.GrayMatterFile<string>) =>
-  hasData(matterRes) &&
-  'pdf' in matterRes.data &&
-  typeof matterRes.data.pdf === 'string';
+  const matterRes: matter.GrayMatterFile<string> =
+    matter(fileContent);
 
-const dir: (category: 'app' | 'architecture') => string = (
-  category: string
-) => path.join(process.cwd(), `data/works/${category}`);
+  const content = await remark()
+    .use(html)
+    .process(matterRes.content);
 
-export const getAllWorks: () => {
-  id: string;
-  title: string;
-  date: string;
-  thumbnail: string;
-  category: "app" | "architecture" | '';
-  pdf?: string;
-}[] = () => {
-  return [
-    ...getWorks(dir('app')),
-    ...getWorks(dir('architecture')),
+  const contentHTML: string = content.toString();
+
+  const res: WorkMeta & { contentHTML: string } = {
+    slug,
+    title: WorkGuard.hasTitle(matterRes)
+      ? matterRes.data.title
+      : '',
+    date: WorkGuard.hasDate(matterRes)
+      ? matterRes.data.date
+      : '',
+    thumbnail: WorkGuard.hasThumbnail(matterRes)
+      ? matterRes.data.thumbnail
+      : '',
+    category: WorkGuard.hasCategory(matterRes)
+      ? matterRes.data.category
+      : '',
+    contentHTML,
+  };
+  if (WorkGuard.hasPdf(matterRes)) {
+    res.pdf = matterRes.data.pdf;
+  }
+  return res;
+};
+
+export const getAllWorkMetaArr: () => WorkMeta[] = () => {
+  const categories: WorkCategory[] = [
+    'app',
+    'architecture',
   ];
+  const res: WorkMeta[] = [];
+  categories.forEach((category: WorkCategory) =>
+    res.push(...getWorkMetaArr(category))
+  );
+  return res;
+};
+
+export const getAllWorkPathArr: () => {
+  params: {
+    slug: string;
+  };
+}[] = () => {
+  const categories: WorkCategory[] = [
+    'app',
+    'architecture',
+  ];
+  const res: Array<{
+    params: {
+      slug: string;
+    };
+  }> = [];
+  categories.forEach((category: WorkCategory) =>
+    res.push(...getWorkPathArr(category))
+  );
+  return res;
 };
