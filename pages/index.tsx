@@ -1,20 +1,11 @@
-import Image from 'next/image';
 import { Layout } from '@/components/Layout';
-import { inter } from '../fonts';
-import { getAllWorks } from '@/libs/works';
-import { Container } from '@/components/Container';
 import { WorkList } from '@/components/work/WorkList';
+import { getAllWorkMetaArr } from '@/libs/works';
+import { WorkMeta } from '@/types/WorkMeta.type';
 
 //SSG
 export async function getStaticProps() {
-  const works: {
-    id: string;
-    title: string;
-    date: string;
-    thumbnail: string;
-    category: string;
-    pdf?: string;
-  }[] = getAllWorks();
+  const works: WorkMeta[] = getAllWorkMetaArr();
   console.log(works);
 
   return {
@@ -24,19 +15,10 @@ export async function getStaticProps() {
   };
 }
 type Props = {
-  works: {
-    id: string;
-    title: string;
-    date: string;
-    thumbnail: string;
-    category: 'app' | 'architecture' | '';
-    pdf?: string;
-  }[];
+  works: WorkMeta[];
 };
 
-export default function Home({
-  works,
-}: Props) {
+export default function Home({ works }: Props) {
   return (
     <Layout>
       <WorkList works={works} />
