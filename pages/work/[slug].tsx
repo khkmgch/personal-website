@@ -2,7 +2,6 @@ import { getAllWorkPathArr, getWork } from '@/libs/works';
 import {
   GetStaticPaths,
   GetStaticProps,
-  GetStaticPropsContext,
   InferGetStaticPropsType,
 } from 'next';
 import React, { FC } from 'react';
@@ -25,9 +24,11 @@ export const getStaticPaths: GetStaticPaths<
 };
 
 type Props = {
-  work: WorkMeta & {
-    contentHTML: string;
-  };
+  work:
+    | (WorkMeta & {
+        contentHTML: string;
+      })
+    | null;
 };
 
 interface Params extends ParsedUrlQuery {
@@ -38,7 +39,14 @@ export const getStaticProps: GetStaticProps<
   Props,
   Params
 > = async ({ params }) => {
-  const work = await getWork(params!.slug);
+  let work:
+    | (WorkMeta & {
+        contentHTML: string;
+      })
+    | null = null;
+  if (params !== undefined) {
+    work = await getWork(params.slug);
+  }
   return {
     props: {
       work,
