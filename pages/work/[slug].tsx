@@ -57,6 +57,7 @@ export const getStaticProps: GetStaticProps<
 type PageProps = InferGetStaticPropsType<
   typeof getStaticProps
 >;
-export const Work: FC<PageProps> = () => {
+const Work: FC<PageProps> = () => {
   return <div>Work</div>;
 };
+export default Work;
