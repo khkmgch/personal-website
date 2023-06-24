@@ -7,6 +7,7 @@ import {
 } from 'next';
 import React, { FC } from 'react';
 import { ParsedUrlQuery } from 'querystring';
+import { WorkMeta } from '@/types/WorkMeta.type';
 
 export const getStaticPaths: GetStaticPaths<
   Params
@@ -23,7 +24,11 @@ export const getStaticPaths: GetStaticPaths<
   };
 };
 
-type Props = {};
+type Props = {
+  work: WorkMeta & {
+    contentHTML: string;
+  };
+};
 
 interface Params extends ParsedUrlQuery {
   slug: string;
@@ -35,7 +40,9 @@ export const getStaticProps: GetStaticProps<
 > = async ({ params }) => {
   const work = await getWork(params!.slug);
   return {
-    props: {},
+    props: {
+      work,
+    },
   };
 };
 
