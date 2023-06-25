@@ -11,11 +11,12 @@ import { MenuItem } from '@/types/MenuItem.type';
 
 export const Navbar = () => {
   const leftmenu: MenuItem[] = [
+    { label: 'About', href: '/about' },
     { label: 'Works', href: '/' },
   ];
 
   const rightmenu: MenuItem[] = [
-    { label: 'About', href: '/about' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ];
   const mobilemenu: MenuItem[] = [
@@ -32,10 +33,7 @@ export const Navbar = () => {
               <div className='flex flex-wrap justify-between md:flex-nowrap md:gap-10'>
                 <div className='order-1 hidden w-full flex-col items-center justify-start md:order-none md:flex md:w-auto md:flex-1 md:flex-row md:justify-end'>
                   {leftmenu.map(
-                    (
-                      item: MenuItem,
-                      index: number,
-                    ) => (
+                    (item: MenuItem, index: number) => (
                       <Fragment key={`${index}`}>
                         <Link
                           href={item.href}
@@ -78,10 +76,7 @@ export const Navbar = () => {
                 </div>
                 <div className='order-2 hidden w-full flex-col items-center justify-start md:order-none md:flex md:w-auto md:flex-1 md:flex-row'>
                   {rightmenu.map(
-                    (
-                      item: MenuItem,
-                      index: number,
-                    ) => (
+                    (item: MenuItem, index: number) => (
                       <Fragment
                         key={`${item.label}${index}`}
                       >
@@ -106,10 +101,7 @@ export const Navbar = () => {
               <Disclosure.Panel>
                 <div className='order-2 -ml-4 mt-4 flex w-full flex-col items-center justify-start md:hidden'>
                   {mobilemenu.map(
-                    (
-                      item: MenuItem,
-                      index: number,
-                    ) => (
+                    (item: MenuItem, index: number) => (
                       <Fragment
                         key={`${item.label}${index}`}
                       >
