@@ -1,5 +1,5 @@
 export type WorkMeta = {
-  slug: string;
+  slug: string[];
   title: string;
   date: string;
   thumbnail: string;

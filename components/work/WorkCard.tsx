@@ -22,7 +22,7 @@ export const WorkCard: FC<Props> = ({ work, aspect }) => {
                 ? 'aspect-square'
                 : ''
             }`}
-            href={`/work/${work.slug}`}
+            href={`/work/${work.slug.join('/')}`}
           >
             {work.thumbnail !== '' ? (
               <Image

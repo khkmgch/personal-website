@@ -18,10 +18,14 @@ const getWorkMetaArr: (
 
   const all: WorkMeta[] = fileNames.map(
     (fileName: string) => {
-      const slug: string = `${category}/${fileName.replace(
-        /\.md$/,
-        ''
-      )}`;
+      // const slug: string = `${category}/${fileName.replace(
+      //   /\.md$/,
+      //   ''
+      // )}`;
+      const slug: string[] = [
+        `${category}`,
+        `${fileName.replace(/\.md$/, '')}`,
+      ];
 
       const filePath: string = path.join(dir, fileName);
       const fileContent: string = fs.readFileSync(
@@ -58,7 +62,7 @@ const getWorkMetaArr: (
 
 const getWorkPathArr: (category: string) => {
   params: {
-    slug: string;
+    slug: string[];
   };
 }[] = (category: string) => {
   const dir: string = path.join(
@@ -68,27 +72,35 @@ const getWorkPathArr: (category: string) => {
   const fileNames: string[] = fs.readdirSync(dir);
 
   return fileNames.map((fileName: string) => {
+    // return {
+    //   params: {
+    //     slug: `${category}/${fileName.replace(
+    //       /\.md$/,
+    //       ''
+    //     )}`,
+    //   },
+    // };
     return {
       params: {
-        slug: `${category}/${fileName.replace(
-          /\.md$/,
-          ''
-        )}`,
+        slug: [
+          `${category}`,
+          `${fileName.replace(/\.md$/, '')}`,
+        ],
       },
     };
   });
 };
 
-export const getWork: (slug: string) => Promise<
+export const getWork: (slug: string[]) => Promise<
   WorkMeta & {
     contentHTML: string;
   }
-> = async (slug: string) => {
+> = async (slug: string[]) => {
   const dir: string = path.join(
     process.cwd(),
     `data/works`
   );
-  const filePath: string = path.join(dir, `${slug}.md`);
+  const filePath: string = path.join(dir, `${slug.join("/")}.md`);
   const fileContent: string = fs.readFileSync(
     filePath,
     'utf-8'
@@ -139,7 +151,7 @@ export const getAllWorkMetaArr: () => WorkMeta[] = () => {
 
 export const getAllWorkPathArr: () => {
   params: {
-    slug: string;
+    slug: string[];
   };
 }[] = () => {
   const categories: WorkCategory[] = [
@@ -148,7 +160,7 @@ export const getAllWorkPathArr: () => {
   ];
   const res: Array<{
     params: {
-      slug: string;
+      slug: string[];
     };
   }> = [];
   categories.forEach((category: WorkCategory) =>
