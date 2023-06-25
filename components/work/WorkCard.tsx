@@ -3,16 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
 import { Label } from '../ui/Label';
+import { WorkMeta } from '@/types/WorkMeta.type';
 
 type Props = {
-  work: {
-    id: string;
-    title: string;
-    date: string;
-    thumbnail: string;
-    category: 'app' | 'architecture' | '';
-    pdf?: string;
-  };
+  work: WorkMeta;
   aspect: 'video' | 'square';
 };
 export const WorkCard: FC<Props> = ({ work, aspect }) => {
@@ -28,7 +22,7 @@ export const WorkCard: FC<Props> = ({ work, aspect }) => {
                 ? 'aspect-square'
                 : ''
             }`}
-            href={`/work/${work.id}`}
+            href={`/work/${work.slug}`}
           >
             {work.thumbnail !== '' ? (
               <Image
@@ -65,7 +59,9 @@ export const WorkCard: FC<Props> = ({ work, aspect }) => {
               </Link>
             </h2>
             <div className='mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400'>
-              <span className='truncate text-sm'>{work.date}</span>
+              <span className='truncate text-sm'>
+                {work.date}
+              </span>
             </div>
           </div>
         </div>
