@@ -12,6 +12,7 @@ import { Label } from '@/components/ui/Label';
 import { Container } from '@/components/Container';
 import Image from 'next/image';
 import Link from 'next/link';
+import { PdfViewer } from '@/components/PdfViewer';
 
 export const getStaticPaths: GetStaticPaths<
   Params
@@ -21,7 +22,7 @@ export const getStaticPaths: GetStaticPaths<
       slug: string[];
     };
   }[] = getAllWorkPathArr();
-  console.log('paths, ', paths);
+  // console.log('paths, ', paths);
 
   return {
     paths,
@@ -69,15 +70,6 @@ const Work: FC<PageProps> = ({ work }) => {
   if (!work) return <>404 not found</>;
   return (
     <Layout>
-      {/* {work.title}
-      <br />
-      {work.date}
-      <br />
-      <div
-        dangerouslySetInnerHTML={{
-          __html: work.contentHTML,
-        }}
-      /> */}
       <Container>
         <div className='mx-auto max-w-screen-md'>
           <div className='flex justify-center'>
@@ -90,8 +82,8 @@ const Work: FC<PageProps> = ({ work }) => {
         </div>
       </Container>
 
-      <div className='relative z-0 mx-auto aspect-video max-w-screen-lg overflow-hidden lg:rounded-lg'>
-        {work.thumbnail && (
+      {work.thumbnail && !work.pdf && (
+        <div className='relative z-0 mx-auto aspect-video max-w-screen-lg overflow-hidden lg:rounded-lg'>
           <Image
             className='object-cover'
             src={work.thumbnail}
@@ -100,16 +92,21 @@ const Work: FC<PageProps> = ({ work }) => {
             priority={true}
             sizes='100vw'
           />
-        )}
-      </div>
+        </div>
+      )}
 
       <Container>
         <article className='mx-auto max-w-screen-md '>
+          {work.pdf && (
+            <div className='flex justify-center'>
+              <PdfViewer />
+            </div>
+          )}
           <div
             dangerouslySetInnerHTML={{
               __html: work.contentHTML,
             }}
-            className='prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600'
+            className='prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600 prose-a:no-underline'
           />
           <div className='my-7 flex justify-center'>
             <Link
