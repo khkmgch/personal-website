@@ -71,6 +71,7 @@ export const PdfViewer = () => {
               new Array(numPages),
               (ele, index: number) => (
                 <Page
+                  width={1024}
                   key={`page_${index + 1}`}
                   pageNumber={index + 1}
                 />
