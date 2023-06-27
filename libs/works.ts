@@ -18,10 +18,6 @@ const getWorkMetaArr: (
 
   const all: WorkMeta[] = fileNames.map(
     (fileName: string) => {
-      // const slug: string = `${category}/${fileName.replace(
-      //   /\.md$/,
-      //   ''
-      // )}`;
       const slug: string[] = [
         `${category}`,
         `${fileName.replace(/\.md$/, '')}`,
@@ -57,7 +53,11 @@ const getWorkMetaArr: (
       return res;
     }
   );
-  return all;
+  return all.sort(
+    (a: WorkMeta, b: WorkMeta) =>
+      new Date(b.date).getTime() -
+      new Date(a.date).getTime()
+  );
 };
 
 const getWorkPathArr: (category: string) => {
@@ -72,14 +72,6 @@ const getWorkPathArr: (category: string) => {
   const fileNames: string[] = fs.readdirSync(dir);
 
   return fileNames.map((fileName: string) => {
-    // return {
-    //   params: {
-    //     slug: `${category}/${fileName.replace(
-    //       /\.md$/,
-    //       ''
-    //     )}`,
-    //   },
-    // };
     return {
       params: {
         slug: [
@@ -100,7 +92,10 @@ export const getWork: (slug: string[]) => Promise<
     process.cwd(),
     `data/works`
   );
-  const filePath: string = path.join(dir, `${slug.join("/")}.md`);
+  const filePath: string = path.join(
+    dir,
+    `${slug.join('/')}.md`
+  );
   const fileContent: string = fs.readFileSync(
     filePath,
     'utf-8'
