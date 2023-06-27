@@ -1,8 +1,10 @@
 ---
-title: 'Arhitecture Portfolio'
-date: '2019-02'
+title: 'Family in a loop'
+subtitle: '住宅'
+date: '2016'
 thumbnail: ''
 category: 'architecture'
+pdf: 'architecture-portfolio.pdf'
 ---
 
 最大４匹でリアルタイム対戦できる**オンラインゲーム**です。
