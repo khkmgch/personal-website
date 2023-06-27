@@ -6,7 +6,7 @@ import { WorkMeta } from '@/types/WorkMeta.type';
 //SSG
 export async function getStaticProps() {
   const works: WorkMeta[] = getAllWorkMetaArr();
-  console.log(works);
+  // console.log(works);
 
   return {
     props: {
