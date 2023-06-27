@@ -12,7 +12,15 @@ import { Label } from '@/components/ui/Label';
 import { Container } from '@/components/Container';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PdfViewer } from '@/components/PdfViewer';
+import dynamic from 'next/dynamic';
+
+const PdfViewer = dynamic(
+  () =>
+    import('../../components/PdfViewer').then(
+      (mod) => mod.PdfViewer
+    ),
+  { ssr: false }
+);
 
 export const getStaticPaths: GetStaticPaths<
   Params
