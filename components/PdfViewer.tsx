@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import { Loading } from './ui/Loading';
 
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -10,10 +11,16 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 export const PdfViewer = () => {
-  const [url, setUrl] = useState<string>('');
+  const [url, setUrl] = useState<string>(
+    '/pdfs/architecture-portfolio.pdf'
+  );
 
   const [numPages, setNumPages] = useState<number>(0);
-  const [pageNum, setPageNum] = useState<number>(1);
+  // const [pageNum, setPageNum] = useState<number>(1);
+
+  const [width, setWidth] = useState<number>();
+
+  const [rendered, setRendered] = useState<boolean>(false);
 
   const onDocumentLoadSuccess = ({
     numPages,
@@ -21,19 +28,42 @@ export const PdfViewer = () => {
     numPages: number;
   }) => {
     setNumPages(numPages);
-    setPageNum(1);
+    // setPageNum(1);
   };
 
-  const changePage = (offset: number) => {
-    setPageNum((prev) => prev + offset);
+  const onPageRenderSuccess = () => {
+    setRendered(true);
   };
 
-  const changePageBack = () => changePage(-1);
+  // const changePage = (offset: number) => {
+  //   setPageNum((prev) => prev + offset);
+  // };
 
-  const changePageNext = () => changePage(1);
+  // const changePageBack = () => changePage(-1);
+
+  // const changePageNext = () => changePage(1);
+
+  const handleSize = () => {
+    if (window.innerWidth * 0.9 > 1024) {
+      setWidth(1024);
+    } else {
+      setWidth(window.innerWidth * 0.9);
+    }
+  };
+
+  const resize = () => {
+    setRendered(false);
+    handleSize();
+  };
 
   useEffect(() => {
-    setUrl('/pdfs/architecture-portfolio.pdf');
+    handleSize();
+
+    window.addEventListener('resize', resize);
+
+    return () => {
+      window.removeEventListener('resize', resize);
+    };
   }, []);
 
   return (
@@ -62,18 +92,23 @@ export const PdfViewer = () => {
         )}
       </Document> */}
       <center>
-        <div>
+        <div id='wrapper'>
+          {!rendered && <Loading color='black' />}
+
           <Document
+            className={`${rendered ? 'block' : 'hidden'}`}
             file={url}
             onLoadSuccess={onDocumentLoadSuccess}
+            loading={<Loading color='black' />}
           >
             {Array.from(
               new Array(numPages),
               (ele, index: number) => (
                 <Page
-                  width={1024}
+                  width={width}
                   key={`page_${index + 1}`}
                   pageNumber={index + 1}
+                  onRenderSuccess={onPageRenderSuccess}
                 />
               )
             )}
