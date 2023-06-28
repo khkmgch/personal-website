@@ -1,9 +1,13 @@
-import React from 'react'
+import { Container } from '@/components/Container';
+import { Layout } from '@/components/Layout';
+import React from 'react';
 
 const index = () => {
   return (
-    <div>準備中...</div>
-  )
-}
+    <Layout>
+      <Container>準備中...</Container>
+    </Layout>
+  );
+};
 
-export default index
+export default index;
