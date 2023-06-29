@@ -1,4 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  FC,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
@@ -10,9 +15,12 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url
 ).toString();
 
-export const PdfViewer = () => {
+type Props = {
+  pdf: string;
+};
+export const PdfViewer: FC<Props> = ({ pdf }) => {
   const [url, setUrl] = useState<string>(
-    '/pdfs/architecture-portfolio.pdf'
+    `/pdfs/${pdf}`
   );
 
   const [numPages, setNumPages] = useState<number>(0);
