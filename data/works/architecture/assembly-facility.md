@@ -2,9 +2,9 @@
 title: '光・水・風'
 subtitle: '集会施設'
 date: '2017'
-thumbnail: ''
+thumbnail: 'assembly-facility.png'
 category: 'architecture'
-# pdf: 'architecture-portfolio.pdf'
+pdf: 'assembly-facility.pdf'
 ---
 
 最大４匹でリアルタイム対戦できる**オンラインゲーム**です。

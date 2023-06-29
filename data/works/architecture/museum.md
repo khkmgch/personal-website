@@ -2,9 +2,9 @@
 title: '白と黒'
 subtitle: 'Museum'
 date: '2019'
-thumbnail: ''
+thumbnail: 'museum.png'
 category: 'architecture'
-# pdf: 'architecture-portfolio.pdf'
+pdf: 'museum.pdf'
 ---
 
 最大４匹でリアルタイム対戦できる**オンラインゲーム**です。

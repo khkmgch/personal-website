@@ -1,10 +1,10 @@
 ---
-title: 'Complex, stair-shaped building'
-subtitle: '集合住宅'
-date: '2017'
-thumbnail: 'apartment-building.png'
+title: 'Valley in the city'
+subtitle: '都市型複合施設'
+date: '2018'
+thumbnail: 'urban-complex.png'
 category: 'architecture'
-pdf: 'apartment-building.pdf'
+pdf: 'urban-complex.pdf'
 ---
 
 最大４匹でリアルタイム対戦できる**オンラインゲーム**です。

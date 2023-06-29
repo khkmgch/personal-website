@@ -1,10 +1,9 @@
 ---
-title: 'Constructive design'
+title: 'Study of form composed of curved surfaces'
 subtitle: 'Rhinoceres modeling'
 date: '2019'
-thumbnail: ''
+thumbnail: 'form-study1.png'
 category: 'architecture'
-# pdf: 'architecture-portfolio.pdf'
 ---
 
 最大４匹でリアルタイム対戦できる**オンラインゲーム**です。

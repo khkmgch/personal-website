@@ -1,7 +1,7 @@
 ---
 title: 'BomberCat'
 date: '2023-04'
-thumbnail: '/images/bombercat.png'
+thumbnail: 'bombercat.png'
 category: 'app'
 ---
 
