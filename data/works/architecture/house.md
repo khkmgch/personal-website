@@ -2,9 +2,9 @@
 title: 'Family in a loop'
 subtitle: '住宅'
 date: '2016'
-thumbnail: ''
+thumbnail: 'house.png'
 category: 'architecture'
-# pdf: 'architecture-portfolio.pdf'
+pdf: 'house.pdf'
 ---
 
 最大４匹でリアルタイム対戦できる**オンラインゲーム**です。

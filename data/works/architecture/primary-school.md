@@ -1,10 +1,10 @@
 ---
-title: 'Complex, stair-shaped building'
-subtitle: '集合住宅'
+title: 'Playing in a loop'
+subtitle: '小学校'
 date: '2017'
-thumbnail: 'apartment-building.png'
+thumbnail: 'primary-school.png'
 category: 'architecture'
-pdf: 'apartment-building.pdf'
+pdf: 'primary-school.pdf'
 ---
 
 最大４匹でリアルタイム対戦できる**オンラインゲーム**です。

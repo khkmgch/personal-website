@@ -94,7 +94,7 @@ const Work: FC<PageProps> = ({ work }) => {
         <div className='relative z-0 mx-auto aspect-video max-w-screen-lg overflow-hidden lg:rounded-lg'>
           <Image
             className='object-cover'
-            src={work.thumbnail}
+            src={`/images/${work.thumbnail}`}
             alt='Thumbnail'
             fill={true}
             priority={true}
@@ -107,7 +107,7 @@ const Work: FC<PageProps> = ({ work }) => {
         <article className='mx-auto max-w-screen-md '>
           {work.pdf && (
             <div className='flex justify-center'>
-              <PdfViewer />
+              <PdfViewer pdf={work.pdf} />
             </div>
           )}
           <div

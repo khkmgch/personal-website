@@ -27,7 +27,7 @@ export const WorkCard: FC<Props> = ({ work, aspect }) => {
             {work.thumbnail !== '' ? (
               <Image
                 className='object-cover transition-all'
-                src={work.thumbnail}
+                src={`/images/${work.thumbnail}`}
                 alt='Thumbnail'
                 fill={true}
                 priority={true}

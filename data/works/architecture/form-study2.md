@@ -1,10 +1,9 @@
 ---
-title: 'Valley in the city'
-subtitle: '都市デザイン'
-date: '2018'
-thumbnail: ''
+title: 'Study of form composed of different materials'
+subtitle: 'Rhinoceres modeling'
+date: '2019'
+thumbnail: 'form-study2.jpg'
 category: 'architecture'
-pdf: 'architecture-portfolio.pdf'
 ---
 
 最大４匹でリアルタイム対戦できる**オンラインゲーム**です。
