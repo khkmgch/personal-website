@@ -1,7 +1,7 @@
 ---
 title: 'Study of form composed of different materials'
-subtitle: 'Rhinoceres modeling'
-date: '2019'
+subtitle: '3D modeling [Rhinoceres]'
+date: '2019-06'
 thumbnail: 'form-study2.jpg'
 category: 'architecture'
 ---

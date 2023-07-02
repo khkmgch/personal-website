@@ -6,6 +6,3 @@ thumbnail: 'apartment-building.png'
 category: 'architecture'
 pdf: 'apartment-building.pdf'
 ---
-
-最大４匹でリアルタイム対戦できる**オンラインゲーム**です。
-インストールせずにブラウザで気軽に遊べます。
