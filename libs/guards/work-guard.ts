@@ -56,4 +56,14 @@ export class WorkGuard {
       typeof matterRes.data.pdf === 'string'
     );
   }
+
+  static hasSubtitle(
+    matterRes: matter.GrayMatterFile<string>
+  ): boolean {
+    return (
+      WorkGuard.hasData(matterRes) &&
+      'subtitle' in matterRes.data &&
+      typeof matterRes.data.subtitle === 'string'
+    );
+  }
 }

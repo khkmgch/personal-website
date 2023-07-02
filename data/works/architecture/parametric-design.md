@@ -1,9 +1,10 @@
 ---
-title: 'Study of form composed of curved surfaces'
-subtitle: '3D modeling [Rhinoceres]'
-date: '2019-05'
-thumbnail: 'form-study1.png'
+title: 'Parametric design'
+subtitle: '3D modeling [Rhinoceres + Grasshopper]'
+date: '2019-04'
+thumbnail: 'parametric-design.png'
 category: 'architecture'
+pdf: 'parametric-design.pdf'
 ---
 
 最大４匹でリアルタイム対戦できる**オンラインゲーム**です。

@@ -50,6 +50,9 @@ const getWorkMetaArr: (
       if (WorkGuard.hasPdf(matterRes)) {
         res.pdf = matterRes.data.pdf;
       }
+      if (WorkGuard.hasSubtitle(matterRes)) {
+        res.subtitle = matterRes.data.subtitle;
+      }
       return res;
     }
   );
@@ -128,6 +131,9 @@ export const getWork: (slug: string[]) => Promise<
   };
   if (WorkGuard.hasPdf(matterRes)) {
     res.pdf = matterRes.data.pdf;
+  }
+  if (WorkGuard.hasSubtitle(matterRes)) {
+    res.subtitle = matterRes.data.subtitle;
   }
   return res;
 };
