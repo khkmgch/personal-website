@@ -87,6 +87,12 @@ const Work: FC<PageProps> = ({ work }) => {
           <h1 className='text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug'>
             {work.title}
           </h1>
+
+          {work.subtitle && (
+            <h2 className='text-brand-primary mb-3 mt-2 text-center text-sm font-medium tracking-tight dark:text-white lg:text-lg lg:leading-snug'>
+              ~ {work.subtitle} ~
+            </h2>
+          )}
         </div>
       </Container>
 
