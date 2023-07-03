@@ -2,6 +2,7 @@
 title: 'Curio Nest'
 date: '2023-05'
 thumbnail: 'curio-nest.png'
+demo: 'curio-nest.gif'
 category: 'app'
 ---
 

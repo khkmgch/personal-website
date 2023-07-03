@@ -2,6 +2,7 @@
 title: 'BomberCat'
 date: '2023-04'
 thumbnail: 'bombercat.png'
+demo: 'bombercat.gif'
 category: 'app'
 ---
 
