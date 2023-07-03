@@ -96,7 +96,18 @@ const Work: FC<PageProps> = ({ work }) => {
         </div>
       </Container>
 
-      {work.thumbnail && !work.pdf && (
+      {!work.pdf && work.demo ? (
+        <div className='relative z-0 mx-auto aspect-video max-w-screen-lg overflow-hidden lg:rounded-lg'>
+          <Image
+            className='object-contain'
+            src={`/demos/${work.demo}`}
+            alt='Thumbnail'
+            fill={true}
+            priority={true}
+            sizes='100vw'
+          />
+        </div>
+      ) : !work.pdf && work.thumbnail ? (
         <div className='relative z-0 mx-auto aspect-video max-w-screen-lg overflow-hidden lg:rounded-lg'>
           <Image
             className='object-cover'
@@ -107,6 +118,8 @@ const Work: FC<PageProps> = ({ work }) => {
             sizes='100vw'
           />
         </div>
+      ) : (
+        <></>
       )}
 
       <Container>

@@ -66,4 +66,14 @@ export class WorkGuard {
       typeof matterRes.data.subtitle === 'string'
     );
   }
+
+  static hasDemo(
+    matterRes: matter.GrayMatterFile<string>
+  ): boolean {
+    return (
+      WorkGuard.hasData(matterRes) &&
+      'demo' in matterRes.data &&
+      typeof matterRes.data.demo === 'string'
+    );
+  }
 }

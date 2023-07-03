@@ -4,6 +4,7 @@ export type WorkMeta = {
   subtitle?: string;
   date: string;
   thumbnail: string;
+  demo?: string;
   category: 'app' | 'architecture' | '';
   pdf?: string;
 };
