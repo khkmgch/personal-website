@@ -53,6 +53,9 @@ const getWorkMetaArr: (
       if (WorkGuard.hasSubtitle(matterRes)) {
         res.subtitle = matterRes.data.subtitle;
       }
+      if (WorkGuard.hasDemo(matterRes)) {
+        res.demo = matterRes.data.demo;
+      }
       return res;
     }
   );
@@ -134,6 +137,9 @@ export const getWork: (slug: string[]) => Promise<
   }
   if (WorkGuard.hasSubtitle(matterRes)) {
     res.subtitle = matterRes.data.subtitle;
+  }
+  if (WorkGuard.hasDemo(matterRes)) {
+    res.demo = matterRes.data.demo;
   }
   return res;
 };
