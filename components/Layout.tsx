@@ -12,7 +12,7 @@ export const Layout: FC<Props> = ({
 }) => {
   const title: string = 'Koh - Secret Hideaway';
   const description: string =
-    "This is Koh's personal website";
+    "個人で作成した作品(Webアプリ、建築デザイン)やブログ記事を公開しています。";
   const site_url: string | undefined =
     process.env.NEXT_PUBLIC_URL;
   const twitter_user: string | undefined =
