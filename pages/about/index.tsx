@@ -45,7 +45,7 @@ const About = () => {
             もし見ていただけましたら、ぜひ感想をお待ちしております。
           </p>
           <p>
-            <Link href='/contact'>Get in touch</Link>
+            <Link href='/contact'>Contact</Link>
           </p>
         </div>
       </Container>

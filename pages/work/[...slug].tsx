@@ -90,7 +90,7 @@ const Work: FC<PageProps> = ({ work }) => {
 
           {work.subtitle && (
             <h2 className='text-brand-primary mb-3 mt-2 text-center text-sm font-medium tracking-tight dark:text-white lg:text-lg lg:leading-snug'>
-              ~ {work.subtitle} ~
+              {work.subtitle}
             </h2>
           )}
         </div>
