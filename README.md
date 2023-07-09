@@ -28,7 +28,6 @@ https://personal-website-khkmgch.vercel.app/
 ## 📗それぞれの技術の採用理由
 
 ### Typescript
-  - これまでJavascriptで開発しており、型のあるTypesciptで書いてみたかった
   - 継続的に開発する際には型がある方が管理しやすいと考えた
 
 ### NextJS
@@ -44,9 +43,8 @@ https://personal-website-khkmgch.vercel.app/
 NextJSのSSGを用いて、高速なページ遷移を可能にしました。
 
 [該当するコード]
-- [getBooksRecommendedByAI()](../server/src/book/book.service.ts) (73行目)
-- [テキスト解析](../server/src/book/utils/nlp.util.ts)
-- [GPT](../server/src/chatgpt/chatgpt.service.ts)
+- [Work](../pages/work/[...slug].tsx)
+- [Home](../pages/index.tsx)
 ### Pdfファイルの閲覧
 Pdfファイルを表示させたかったため、react-pdfライブラリを活用しました。
 
