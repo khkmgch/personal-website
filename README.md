@@ -52,7 +52,7 @@ Pdfファイルを表示させたかったため、react-pdfライブラリを�
 - [PdfViewer](./components/PdfViewer.tsx) 
 
 ### Contactフォーム
-web3ライブラリを使用して、フォームからメールで問い合わせできるように実装しました。
+web3formsライブラリを使用して、フォームからメールで問い合わせできるように実装しました。
 
 [該当するコード]
 - [Contact](./pages/contact/index.tsx)
