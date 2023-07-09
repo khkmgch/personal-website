@@ -1,5 +1,3 @@
-# personal-website
-
 # :grey_question:Personal Website
 作成したアプリや建築デザイン、ブログ記事などを公開するための個人サイトです。
 ## :globe_with_meridians:Url
