@@ -43,8 +43,8 @@ https://personal-website-khkmgch.vercel.app/
 NextJSのSSGを用いて、高速なページ遷移を可能にしました。
 
 [該当するコード]
-- [Work](../pages/work/[...slug].tsx)
-- [Home](../pages/index.tsx)
+- [Work](./pages/work/[...slug].tsx)
+- [Home](./pages/index.tsx)
 ### Pdfファイルの閲覧
 Pdfファイルを表示させたかったため、react-pdfライブラリを活用しました。
 
