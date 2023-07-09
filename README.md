@@ -49,13 +49,13 @@ NextJSのSSGを用いて、高速なページ遷移を可能にしました。
 Pdfファイルを表示させたかったため、react-pdfライブラリを活用しました。
 
 [該当するコード]
-- [疑問と本を紐づけするコード](../server/src/question/question.controller.ts) (96行目)
+- [PdfViewer](./components/PdfViewer.tsx) 
 
 ### Contactフォーム
 web3ライブラリを使用して、フォームからメールで問い合わせできるように実装しました。
 
 [該当するコード]
-- [BookShelfコンポーネント](../client/components/book/BookShelf.tsx)
+- [Contact](./pages/contact/index.tsx)
 
 ## :muscle:苦労した点
 
