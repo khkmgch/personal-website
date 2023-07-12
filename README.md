@@ -46,7 +46,8 @@ NextJSのSSGを用いて、高速なページ遷移を可能にしました。
 - [Work](./pages/work/[...slug].tsx)
 - [Home](./pages/index.tsx)
 ### Pdfファイルの閲覧
-Pdfファイルを表示させたかったため、react-pdfライブラリを活用しました。
+Pdfファイルを表示させるため、react-pdfライブラリを活用しました。  
+全てのページを表示するためのコンポーネントとして、PdfViewerを作成しました。
 
 [該当するコード]
 - [PdfViewer](./components/PdfViewer.tsx) 
