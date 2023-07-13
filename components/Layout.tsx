@@ -10,7 +10,7 @@ type Props = {
 export const Layout: FC<Props> = ({
   children,
 }) => {
-  const title: string = 'Koh - Secret Hideaway';
+  const title: string = 'Koh - Portfolio';
   const description: string =
     "個人で作成した作品(Webアプリ、建築デザイン)やブログ記事を公開しています。";
   const site_url: string | undefined =
