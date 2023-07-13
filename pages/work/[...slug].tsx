@@ -54,7 +54,7 @@ export const getStaticProps: GetStaticProps<
   Props,
   Params
 > = async ({ params }) => {
-  console.log('params: ', params);
+  // console.log('params: ', params);
   let work:
     | (WorkMeta & {
         contentHTML: string;
@@ -74,7 +74,7 @@ type PageProps = InferGetStaticPropsType<
   typeof getStaticProps
 >;
 const Work: FC<PageProps> = ({ work }) => {
-  console.log('work: ', work);
+  // console.log('work: ', work);
   if (!work) return <>404 not found</>;
   return (
     <Layout>

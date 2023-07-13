@@ -6,7 +6,7 @@ export const config = {
 
 const image = fetch(
   new URL(
-    `${process.env.NEXT_PUBLIC_URL}/images/curio-nest.png`
+    `${process.env.NEXT_PUBLIC_URL}/images/personal-website.png`
   )
 ).then((res) => res.arrayBuffer());
 
