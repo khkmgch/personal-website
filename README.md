@@ -40,7 +40,7 @@ https://personal-website-khkmgch.vercel.app/
   
 ## :pushpin:特にこだわった箇所
 ### ページ遷移の速度
-NextJSのSSGを用いて、高速なページ遷移を可能にしました。
+NextJSのStatic Site Generation(SSG)を用いて、高速なページ遷移を可能にしました。
 
 [該当するコード]
 - [Work](./pages/work/[...slug].tsx)
