@@ -1,5 +1,6 @@
 import { Container } from '@/components/Container';
 import { Layout } from '@/components/Layout';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -16,8 +17,22 @@ const About = () => {
           </p>
         </div>
 
-        <div className='mb-16 mt-6 grid grid-cols-3 gap-5 md:mb-32 md:mt-16 md:gap-16'>
-          {/* {authors.slice(0, 3).map(author => {
+        <div className='mb-16 mt-6 flex flex-row justify-center md:mb-32 md:mt-16'>
+          <div className='relative aspect-square rounded-md basis-1/4 '>
+            <Link href={`https://github.com/khkmgch`}>
+              <Image
+                src={'/images/cat_paw.png'}
+                alt={'Koh' || ' '}
+                fill
+                sizes='(max-width: 320px) 100vw, 320px'
+                className='object-contain'
+              />
+            </Link>
+          </div>
+        </div>
+
+        {/* <div className='mb-16 mt-6 grid grid-cols-1 gap-5 md:mb-32 md:mt-16 md:gap-16'>
+          {authors.slice(0, 3).map(author => {
           const imageProps = urlForImage(author?.image) || null;
           return (
             <div
@@ -34,8 +49,19 @@ const About = () => {
               </Link>
             </div>
           );
-        })} */}
-        </div>
+        })}
+          <div className='relative aspect-square overflow-hidden rounded-md odd:translate-y-10 odd:md:translate-y-16'>
+            <Link href={`https://github.com/khkmgch`}>
+              <Image
+                src={'/images/cat_paw.png'}
+                alt={'Koh' || ' '}
+                fill
+                sizes='(max-width: 320px) 100vw, 320px'
+                className='object-cover'
+              />
+            </Link>
+          </div>
+        </div> */}
 
         <div className='prose mx-auto mt-14 text-center dark:prose-invert'>
           <p>
