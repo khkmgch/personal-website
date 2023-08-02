@@ -76,4 +76,14 @@ export class WorkGuard {
       typeof matterRes.data.demo === 'string'
     );
   }
+
+  static hasGithub(
+    matterRes: matter.GrayMatterFile<string>
+  ): boolean {
+    return (
+      WorkGuard.hasData(matterRes) &&
+      'github' in matterRes.data &&
+      typeof matterRes.data.github === 'string'
+    );
+  }
 }

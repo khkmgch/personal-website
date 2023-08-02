@@ -5,6 +5,8 @@ date: '2022-12'
 thumbnail: 'recursion-team-w.png'
 demo: 'recursion-team-w.gif'
 category: 'app'
+github: 'https://github.com/orgs/Recursion-Group-W/repositories'
+
 ---
 
 ３人のメンバーで、１ヵ月半のチーム開発を行いました。   
@@ -42,5 +44,4 @@ Firebaseを使った認証と、デプロイについては、２人のメンバ
 ミーティングでは、質問や提案を積極的に行うことで、Githubを使ったチーム開発の流れや、コード管理について学ぶことができました。  
 また、触ったことのない技術にも積極的にチャレンジすることで、短期間でレベルアップすることができました。
 
-[→コードはこちら](https://github.com/orgs/Recursion-Group-W/repositories)  
 ※ 現在はサーバーが稼働していないためプレイできません。

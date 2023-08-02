@@ -56,6 +56,9 @@ const getWorkMetaArr: (
       if (WorkGuard.hasDemo(matterRes)) {
         res.demo = matterRes.data.demo;
       }
+      if (WorkGuard.hasGithub(matterRes)) {
+        res.github = matterRes.data.github;
+      }
       return res;
     }
   );
@@ -140,6 +143,9 @@ export const getWork: (slug: string[]) => Promise<
   }
   if (WorkGuard.hasDemo(matterRes)) {
     res.demo = matterRes.data.demo;
+  }
+  if (WorkGuard.hasGithub(matterRes)) {
+    res.github = matterRes.data.github;
   }
   return res;
 };
