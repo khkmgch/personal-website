@@ -13,6 +13,7 @@ import { Container } from '@/components/Container';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { IconBrandGithub } from '@tabler/icons-react';
 
 const PdfViewer = dynamic(
   () =>
@@ -104,6 +105,8 @@ const Work: FC<PageProps> = ({ work }) => {
             alt='Thumbnail'
             fill={true}
             priority={true}
+            placeholder='blur'
+            blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mPMrQcAAV8A7ouLPuwAAAAASUVORK5CYII='
             sizes='100vw'
           />
         </div>
@@ -135,6 +138,25 @@ const Work: FC<PageProps> = ({ work }) => {
             }}
             className='prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600 prose-a:no-underline'
           />
+
+          {work.github && (
+            <div className='flex items-center justify-center'>
+              <a
+                href={work.github}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <button
+                  type='button'
+                  className='flex items-center justify-center rounded-md bg-gray-700 px-7 py-4 font-semibold text-white transition-colors hover:bg-gray-500 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-offset-2 dark:bg-white dark:text-black '
+                >
+                  <IconBrandGithub className='h-8 w-8' />
+                  <p>README</p>
+                </button>
+              </a>
+            </div>
+          )}
+
           <div className='my-7 flex justify-center'>
             <Link
               href='/'

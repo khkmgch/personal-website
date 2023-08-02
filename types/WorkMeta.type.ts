@@ -7,4 +7,5 @@ export type WorkMeta = {
   demo?: string;
   category: 'app' | 'architecture' | '';
   pdf?: string;
+  github?: string
 };
