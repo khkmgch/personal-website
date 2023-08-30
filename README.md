@@ -50,6 +50,9 @@ NextJSのStatic Site Generation(SSG)を用いて、ビルド時にHTMLを生成�
 - [Work](./pages/work/[...slug].tsx)
 - [Home](./pages/index.tsx)
 
+※ 参考資料  
+https://nextjs.org/docs/pages/building-your-application/rendering/static-site-generation
+
 #### 動的インポート
 ページ表示速度のパフォーマンスを考慮し、後述するPdfViewerコンポーネントを動的に読み込むようにしました。
 
