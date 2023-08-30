@@ -56,6 +56,9 @@ https://nextjs.org/docs/pages/building-your-application/rendering/static-site-ge
 #### 動的インポート
 ページ表示速度のパフォーマンスを考慮し、後述するPdfViewerコンポーネントを動的に読み込むようにしました。
 
+※ 参考資料 
+https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading
+
 ### Pdfファイルの閲覧
 Pdfファイルを表示させるため、react-pdfライブラリを活用しました。  
 全てのページを表示するためのコンポーネントとして、PdfViewerを作成しました。
